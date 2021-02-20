@@ -119,7 +119,7 @@ if __name__ == '__main__':
             
             print("*"*35)
             inorder(root)
-            print("*"*35)
+            print("\n*"*35)
 
         elif (option == 2):
             print("[Please Enter the Number to be Deleted]")
