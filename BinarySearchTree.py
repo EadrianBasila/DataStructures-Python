@@ -119,7 +119,8 @@ if __name__ == '__main__':
             
             print("*"*35)
             inorder(root)
-            print("\n*"*35)
+            print("")
+            print("*"*35)
 
         elif (option == 2):
             print("[Please Enter the Number to be Deleted]")
@@ -127,7 +128,8 @@ if __name__ == '__main__':
             root = deleteNode(root, numDel)
             print("*"*35)
             inorder(root)
-            print("\n*"*35)
+            print("")
+            print("*"*35)
 
         else:
             print("[!]Please choose from options above.")
