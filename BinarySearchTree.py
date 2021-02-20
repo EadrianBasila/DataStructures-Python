@@ -100,6 +100,8 @@ def printOption():
  
 if __name__ == '__main__':
     option = 0
+    root = None
+
     while(option != 3):
         print("")
         printOption()
@@ -112,7 +114,6 @@ if __name__ == '__main__':
             nums = input("Enter numbers:\n").split(',')
             keys = [int(num) for num in nums]
             
-            root = None
     
             for key in keys:
                 root = insert(root, key)
