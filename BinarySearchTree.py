@@ -57,15 +57,15 @@ def deleteNode(root, key):
 
     # if the given key is less than the root node, recur for the left subtree
     if key < root.data:
-        print("[-] Deleting Node from left.")
-        print("[-] {} element deleted.".format(key))
+        #print("[-] Deleting Node from left.")
+        #print("[-] {} element deleted.".format(key))
         root.left = deleteNode(root.left, key)
         
 
     # if the given key is more than the root node, recur for the right subtree
     elif key > root.data:
-        print("[-] Deleting Node from right.")
-        print("[-] {} element deleted.".format(key))
+        #print("[-] Deleting Node from right.")
+        #print("[-] {} element deleted.".format(key))
         root.right = deleteNode(root.right, key)
  
     # key found
@@ -96,18 +96,48 @@ def deleteNode(root, key):
             # choose a child node
             child = root.left if root.left else root.right
             root = child
- 
+        print("[-] {} element deleted.".format(key))
+
     return root
- 
+    
+def printOption():
+    print("-="*18)
+    print("Binary Search Tree")
+    print("1.) Add elements to the tree")
+    print("2.) Delete elements to the tree")
+    print("3.) Exit")
+    print("-="*18)
+
  
 if __name__ == '__main__':
- 
-    keys = [15, 10, 20, 8, 12, 25]
- 
-    root = None
+    option = 0
+    while(option != 3):
+        print("")
+        printOption()
+        option = int(input("Enter your Choice: "))
+        
+
+        if (option == 1):
+            print("")
+            print("[Please Enter Numbers Separated by Comma]")
+            nums = input("Enter numbers:\n").split(',')
+            keys = [int(num) for num in nums]
+            
+            root = None
     
-    for key in keys:
-        root = insert(root, key)
- 
-    root = deleteNode(root, 12)
-    inorder(root)
+            for key in keys:
+                root = insert(root, key)
+
+            inorder(root)
+            
+
+        elif (option == 2):
+            print("[Please Enter the Number to be Deleted]")
+            numDel = int(input("Enter Number: "))
+            root = deleteNode(root, numDel)
+            inorder(root)
+           
+        else:
+            print("[!]Please choose from options above.")
+
+print("K. Bye")
