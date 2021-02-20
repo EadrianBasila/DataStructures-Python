@@ -1,4 +1,4 @@
-# A class to store a BST node
+
 class Node:
     def __init__(self, data, left=None, right=None):
         self.data = data
@@ -55,45 +55,34 @@ def deleteNode(root, key):
         print("[!]Element not found on Tree.")
         return root
 
-    # if the given key is less than the root node, recur for the left subtree
     if key < root.data:
-        #print("[-] Deleting Node from left.")
-        #print("[-] {} element deleted.".format(key))
         root.left = deleteNode(root.left, key)
         
 
-    # if the given key is more than the root node, recur for the right subtree
     elif key > root.data:
-        #print("[-] Deleting Node from right.")
-        #print("[-] {} element deleted.".format(key))
         root.right = deleteNode(root.right, key)
  
     # key found
     else:
- 
-        # Case 1: node to be deleted has no children (it is a leaf node)
+
         if root.left is None and root.right is None:
-            # update root to None
+
             print("[#]Node has no children.")
             return None
  
-        # Case 2: node to be deleted has two children
         elif root.left and root.right:
             print("[#]Node has children on both sides.")
-            # find its inorder predecessor node
+
             predecessor = maximumKey(root.left)
- 
-            # copy value of the predecessor to the current node
+
             root.data = predecessor.data
  
-            # recursively delete the predecessor. Note that the
-            # predecessor will have at most one child (left child)
             root.left = deleteNode(root.left, predecessor.data)
             print("[-] Deleting Node.")
-        # Case 3: node to be deleted has only one child
+
         else:
             print("[#]Node has children.")
-            # choose a child node
+
             child = root.left if root.left else root.right
             root = child
         print("[-] {} element deleted.".format(key))
@@ -127,16 +116,19 @@ if __name__ == '__main__':
     
             for key in keys:
                 root = insert(root, key)
-
-            inorder(root)
             
+            print("*"*35)
+            inorder(root)
+            print("*"*35)
 
         elif (option == 2):
             print("[Please Enter the Number to be Deleted]")
             numDel = int(input("Enter Number: "))
             root = deleteNode(root, numDel)
+            print("*"*35)
             inorder(root)
-           
+            print("\n*"*35)
+
         else:
             print("[!]Please choose from options above.")
 
