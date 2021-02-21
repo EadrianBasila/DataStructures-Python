@@ -1,9 +1,9 @@
 def bubbleSort(num):
 	for i in range (0, len(num) - 1):
 		done = True
-		for j in range (0, len(num) - i - 1):
-			if num[j] > num[j+1]:
-				num[j], num[j+1] = num[j+1], num[j]
+		for b in range (0, len(num) - i - 1):
+			if num[b] > num[b+1]:
+				num[b], num[b+1] = num[b+1], num[b]
 				done = False
 		if done:
 			return
