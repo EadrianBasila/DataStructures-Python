@@ -734,7 +734,7 @@ def Sorting():
         elif SortMenu == 5: QuickSort()  #Done
         elif SortMenu == 6: SelectionSort() #Done
         elif SortMenu == 7: MainMenu()
-        elif StackMenu == 8:
+        elif SortMenu == 8:
             print("Thank you for patrionazing our program!")
             os._exit(0) 
         else:
